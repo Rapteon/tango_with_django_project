@@ -6,9 +6,12 @@ from django.http import HttpResponse
 # more functions in this file. Each view requires a HttpRequest object
 # as one argument and must return a HttpResponse object.
 def index(request):
-    return HttpResponse(
-        'Rango says hey there partner!<br><a href="/rango/about/">About</a>'
-    )
+    # This dict is passed to the template engine to substitute "boldmessage" with the given text
+    # in the template.
+    context_dict = {"boldmessage": "Crunchy, creamy, cookie, candy, cupcake!"}
+
+    # The second argument is the path to the template inside the templates directory for rendering.
+    return render(request, "rango/index.html", context=context_dict)
 
 
 def about(request):
