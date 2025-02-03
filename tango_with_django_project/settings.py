@@ -21,6 +21,9 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
 # Directory with static files
 STATIC_DIR = os.path.join(BASE_DIR, "static")
 
+# Directory with media files (like user profile images)
+MEDIA_DIR = os.path.join(BASE_DIR, "media")
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -68,6 +71,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.media",
             ],
         },
     },
@@ -131,3 +135,7 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     STATIC_DIR,
 ]
+
+# These variables are used by Django to setup media file hosting.
+MEDIA_ROOT = MEDIA_DIR  # Where to look for media files.
+MEDIA_URL = "/media/"  # URL which will be joined with paths of media files.
