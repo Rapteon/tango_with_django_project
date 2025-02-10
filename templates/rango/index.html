@@ -14,11 +14,11 @@
     </div>
     <div>
         {% if categories %}
-        <ul>
             {% for category in categories %}
-            <a href="/rango/category/{{category.slug}}">{{category.name}}</a>
+            <ul>
+                <a href="/rango/category/{{category.slug}}">{{category.name}}</a>
+            </ul>
             {% endfor %}
-        </ul>
         {% else %}
         <strong>There are no categories present.</strong>
         {% endif %}
