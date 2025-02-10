@@ -13,12 +13,14 @@ def index(request):
     # Note: The `-` (minus) denotes descending order. Without it, the results
     # will be ordered in ascending order.
     category_list = Category.objects.order_by("-likes")[:5]
+    pages_list = Page.objects.order_by("-views")[:5]
 
     # This dict is passed to the template engine to substitute "boldmessage" with the given text
     # in the template.
     context_dict = {}
     context_dict["boldmessage"] = "Crunchy, creamy, cookie, candy, cupcake!"
     context_dict["categories"] = category_list
+    context_dict["pages"] = pages_list
 
     # The second argument is the path to the template inside the templates directory for rendering.
     return render(request, "rango/index.html", context=context_dict)
